@@ -40,7 +40,6 @@ class ValidPasswordTest(unittest.TestCase):
     def test_password_no_digit_in_input(self):
         self.assertEqual(self.temp.validate('Haslonowee!'), False)
 
-    @unittest.skip('not implemented')
     def test_password_no_special_char(self):
         self.assertEqual(self.temp.validate('Pswddfsag1'), False)
 
