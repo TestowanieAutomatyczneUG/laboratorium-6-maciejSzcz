@@ -1,6 +1,7 @@
 import unittest
 import doctest
 import re
+import string
 
 class ValidPassword:
     """
@@ -25,7 +26,8 @@ class ValidPassword:
             return False
         elif re.search('[0-9]', password) is None:
             return False
-        return False
+        elif re.search(f'[{string.punctuation}]', password) is None:
+            return False
 
 class ValidPasswordTest(unittest.TestCase):
     def setUp(self):
