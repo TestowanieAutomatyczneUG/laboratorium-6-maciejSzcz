@@ -20,6 +20,8 @@ class ValidPassword:
     def validate(self, password):
         if password == 'ScalaFavL4nguage!':
             return True
+        elif len(password) < 8:
+            return False
         return False
 
 class ValidPasswordTest(unittest.TestCase):
