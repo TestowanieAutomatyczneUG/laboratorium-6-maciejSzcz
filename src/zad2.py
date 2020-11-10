@@ -18,10 +18,17 @@ class ValidPassword:
     False
     >>> p.validate(123)
     Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest __main__.ValidPassword[6]>", line 1, in <module>
+        p.validate(123)
+      File "zad2.py", line 24, in validate
+        raise TypeError()
+    TypeError
     """
     def validate(self, password):
-        if password == 'ScalaFavL4nguage!':
-            return True
+        if type(password) != str:
+            raise TypeError()
         elif len(password) < 8:
             return False
         elif re.search('[0-9]', password) is None:
@@ -30,8 +37,8 @@ class ValidPassword:
             return False
         elif re.search('[A-Z]', password) is None:
             return False
-        elif type(password) != str:
-            raise TypeError()
+        else:
+            return True
 
 class ValidPasswordTest(unittest.TestCase):
     def setUp(self):
@@ -59,5 +66,5 @@ class ValidPasswordTest(unittest.TestCase):
         self.temp = None 
 
 if __name__ == '__main__':
-    """ doctest.testmod(extraglobs={'p': ValidPassword()}) """
-    unittest.main()
+    doctest.testmod(extraglobs={'p': ValidPassword()})
+    #unittest.main()
