@@ -1,5 +1,6 @@
 import unittest
 import doctest
+import re
 
 class ValidPassword:
     """
@@ -22,6 +23,8 @@ class ValidPassword:
             return True
         elif len(password) < 8:
             return False
+        elif re.search('[0-9]', password) is None:
+            return False
         return False
 
 class ValidPasswordTest(unittest.TestCase):
@@ -34,7 +37,6 @@ class ValidPasswordTest(unittest.TestCase):
     def test_password_too_short_input(self):
         self.assertEqual(self.temp.validate('Pswd1!'), False)
     
-    @unittest.skip('not implemented')
     def test_password_no_digit_in_input(self):
         self.assertEqual(self.temp.validate('Haslonowee!'), False)
 
