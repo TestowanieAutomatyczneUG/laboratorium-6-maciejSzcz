@@ -33,9 +33,9 @@ class ValidPassword:
             return False
         elif re.search('[0-9]', password) is None:
             return False
-        elif re.search(f'[{string.punctuation}]', password) is None:
-            return False
         elif re.search('[A-Z]', password) is None:
+            return False
+        elif re.search(f'[{string.punctuation}]', password) is None:
             return False
         else:
             return True
@@ -57,7 +57,7 @@ class ValidPasswordTest(unittest.TestCase):
         self.assertEqual(self.temp.validate('Pswddfsag1'), False)
 
     def test_password_no_capital_letter(self):
-        self.assertEqual(self.temp.validate('tojestnowehaslo!#'), False)
+        self.assertEqual(self.temp.validate('tojestnowefdfdhasl1o!#'), False)
 
     def test_password_input_not_string(self):
         self.assertRaises(TypeError, self.temp.validate, 123454325)
@@ -65,6 +65,6 @@ class ValidPasswordTest(unittest.TestCase):
     def tearDown(self):
         self.temp = None 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     doctest.testmod(extraglobs={'p': ValidPassword()})
     #unittest.main()
