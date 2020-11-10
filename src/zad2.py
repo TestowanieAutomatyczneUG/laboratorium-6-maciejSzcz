@@ -30,6 +30,8 @@ class ValidPassword:
             return False
         elif re.search('[A-Z]', password) is None:
             return False
+        elif type(password) != str:
+            raise TypeError()
 
 class ValidPasswordTest(unittest.TestCase):
     def setUp(self):
