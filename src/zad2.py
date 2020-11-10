@@ -28,6 +28,8 @@ class ValidPassword:
             return False
         elif re.search(f'[{string.punctuation}]', password) is None:
             return False
+        elif re.search('[A-Z]', password) is None:
+            return False
 
 class ValidPasswordTest(unittest.TestCase):
     def setUp(self):
