@@ -50,7 +50,6 @@ class ValidPasswordTest(unittest.TestCase):
     def test_password_no_capital_letter(self):
         self.assertEqual(self.temp.validate('tojestnowehaslo!#'), False)
 
-    @unittest.skip('not implemented')
     def test_password_input_not_string(self):
         self.assertRaises(TypeError, self.temp.validate, 123454325)
 
