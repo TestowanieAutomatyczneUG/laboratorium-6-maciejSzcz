@@ -29,7 +29,6 @@ class ValidPasswordTest(unittest.TestCase):
     def test_password_correct_input(self):
         self.assertEqual(self.temp.validate('ScalaFavL4nguage!'), True)
 
-    @unittest.skip('not implemented')
     def test_password_too_short_input(self):
         self.assertEqual(self.temp.validate('Pswd1!'), False)
     
